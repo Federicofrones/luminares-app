@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "manifest.json",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "service-worker.js",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "logo.png",
+      "use": "@vercel/static"
+    }
+  ]
+}

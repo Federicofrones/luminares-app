@@ -1,0 +1,32 @@
+{
+  "id": "/luminares_app",
+  "name": "Luminares - Gestión Dual",
+  "short_name": "Luminares",
+  "description": "Plataforma de gestión para el Instituto Musical Luminares",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#1e3a8a",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "orientation": "portrait"
+}

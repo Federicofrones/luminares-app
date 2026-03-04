@@ -1,0 +1,9 @@
+.vercel
+node_modules/
+.env
+*.pyc
+__pycache__/
+temp_audio/
+dist/
+build/
+.DS_Store

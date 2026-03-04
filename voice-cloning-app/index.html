@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Cloning Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1><i class="fa-solid fa-microphone-lines"></i> Voice Cloning Studio</h1>
+            <p>Train AI with your voice and generate highly realistic speech.</p>
+        </header>
+
+        <section class="card glass">
+            <h2><i class="fa-solid fa-key"></i> 1. Setup API</h2>
+            <div class="input-group">
+                <label for="api-key">ElevenLabs API Key</label>
+                <input type="password" id="api-key" placeholder="Enter your API Key here..." autocomplete="off">
+                <small>Required to interact with ElevenLabs. Get one at <a href="https://elevenlabs.io" target="_blank">elevenlabs.io</a></small>
+            </div>
+            <button id="save-api-key" class="btn primary">Save API Key</button>
+        </section>
+
+        <section class="card glass">
+            <h2><i class="fa-solid fa-cloud-arrow-up"></i> 2. Clone Your Voice</h2>
+            <div class="input-group">
+                <label for="voice-name">Voice Name</label>
+                <input type="text" id="voice-name" placeholder="e.g. My Custom Voice">
+            </div>
+            <div class="input-group">
+                <label for="voice-description">Description (Optional)</label>
+                <input type="text" id="voice-description" placeholder="A brief description of the voice">
+            </div>
+            <div class="input-group file-upload-wrapper">
+                <label for="voice-files" class="file-upload-label">
+                    <i class="fa-solid fa-file-audio"></i> Choose Audio Files (MP3/WAV)
+                </label>
+                <input type="file" id="voice-files" accept="audio/*" multiple>
+                <div id="file-list" class="file-list"></div>
+                <small>Upload clean, clear audio of you speaking (without background noise). 1-5 minutes recommended.</small>
+            </div>
+            
+            <button id="clone-voice-btn" class="btn primary">
+                <span class="btn-text">Clone Voice</span>
+                <i class="fa-solid fa-spinner fa-spin hidden" id="clone-loader"></i>
+            </button>
+            <div id="clone-status" class="status-message"></div>
+        </section>
+
+        <section class="card glass">
+            <h2><i class="fa-solid fa-comment-dots"></i> 3. Generate Speech</h2>
+            <div class="input-group">
+                <label for="voice-select">Select Voice</label>
+                <div class="select-wrapper">
+                    <select id="voice-select">
+                        <option value="">Load voices first...</option>
+                    </select>
+                    <button id="refresh-voices-btn" class="btn icon-btn" title="Refresh Voices"><i class="fa-solid fa-rotate-right"></i></button>
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="tts-text">Text to Speak</label>
+                <textarea id="tts-text" rows="4" placeholder="Type what you want your cloned voice to say..."></textarea>
+            </div>
+            <button id="generate-speech-btn" class="btn primary">
+                <span class="btn-text">Generate Speech</span>
+                <i class="fa-solid fa-spinner fa-spin hidden" id="generate-loader"></i>
+            </button>
+            <div id="generate-status" class="status-message"></div>
+            
+            <div id="audio-result-container" class="audio-result hidden">
+                <h3>Result:</h3>
+                <audio id="audio-player" controls></audio>
+                <a id="download-audio-btn" class="btn secondary" download="generated_speech.mp3">
+                    <i class="fa-solid fa-download"></i> Download Audio
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

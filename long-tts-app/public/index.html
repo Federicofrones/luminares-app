@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinematic Storyteller AI</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <h1><i class="fa-solid fa-book-skull"></i> Cinematic Storyteller AI</h1>
+            <p>Convert horror stories and long texts into terrifyingly realistic MP3 audio for free!</p>
+        </header>
+
+        <main>
+            <section class="settings-panel">
+                <div class="input-group">
+                    <label for="voice-select"><i class="fa-solid fa-microphone"></i> Select Cinematic Voice</label>
+                    <select id="voice-select">
+                        <optgroup label="Español - Masculinas (Ideales para Terror/Misterio)">
+                            <option value="es-MX-JorgeNeural" selected>Jorge (México) - Muy grave, narrativo, adulto
+                            </option>
+                            <option value="es-ES-AlvaroNeural">Alvaro (España) - Profundo, serio, impecable</option>
+                            <option value="es-CO-GonzaloNeural">Gonzalo (Colombia) - Voz fuerte y clara</option>
+                        </optgroup>
+                        <optgroup label="Español - Femeninas">
+                            <option value="es-ES-ElviraNeural">Elvira (España) - Aduta, excelente dicción</option>
+                            <option value="es-MX-DaliaNeural">Dalia (México) - Joven, clara</option>
+                        </optgroup>
+                        <optgroup label="English - Deep Males">
+                            <option value="en-US-ChristopherNeural">Christopher (US) - Incredible storyteller depth
+                            </option>
+                            <option value="en-US-GuyNeural">Guy (US) - Deep, resonant</option>
+                            <option value="en-GB-RyanNeural">Ryan (UK) - British, intense</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="input-group banner-group">
+                    <div
+                        style="padding: 1rem; background: #e6fffa; border-radius: 8px; border: 1px solid #b2f5ea; color: #234e52; font-size: 0.9rem; height: 100%; display: flex; align-items: center;">
+                        <i class="fa-solid fa-check-circle" style="margin-right: 8px; color: #319795;"></i>
+                        100% Free powered by Microsoft Edge Neural engine. No API Key required!
+                    </div>
+                </div>
+            </section>
+
+            <section class="editor-panel">
+                <div class="editor-header">
+                    <label for="story-text">Your Horror Story</label>
+                    <span id="char-count">0 characters (approx. 0 chunks)</span>
+                </div>
+                <textarea id="story-text"
+                    placeholder="Paste your terrifying 20,000+ character story here..."></textarea>
+            </section>
+
+            <div class="action-panel">
+                <button id="generate-btn" class="btn primary">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Cinematic Audio
+                </button>
+            </div>
+
+            <div id="progress-container" class="progress-box hidden">
+                <h3>Summoning Audio...</h3>
+                <p>Please wait. For very long texts (20k+ chars), this can take a couple of minutes.</p>
+                <div class="spinner"><i class="fa-solid fa-circle-notch fa-spin"></i></div>
+            </div>
+
+            <div id="result-container" class="result-box hidden">
+                <h3><i class="fa-solid fa-headphones"></i> Audio Ready!</h3>
+                <audio id="audio-player" controls></audio>
+                <a id="download-link" class="btn success" download="cinematic_story.mp3">
+                    <i class="fa-solid fa-download"></i> Download MP3
+                </a>
+            </div>
+
+            <div id="error-container" class="error-box hidden">
+                <p id="error-message"></p>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
